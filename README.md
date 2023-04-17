@@ -1,3 +1,7 @@
+#Proyecto del Modulo - Front-End Frameworks
+Elaborado por: Andres Felipe Ospina
+Three Points - Universidad Politecnica de Cataluña - UPC
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
