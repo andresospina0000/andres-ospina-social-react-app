@@ -1,7 +1,9 @@
 # Proyecto del Modulo - Front-End Frameworks
 
 Elaborado por: Andres Felipe Ospina Lenis
+
 Master FullStack Web Development
+
 Three Points - Universidad Politecnica de Cataluña - UPC
 
 # Getting Started with Create React App
