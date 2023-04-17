@@ -4,7 +4,7 @@ Elaborado por: Andres Felipe Ospina Lenis
 
 Master FullStack Web Development
 
-Universidad Politécnica de Cataluña · Barcelona Tech - UPC
+Three Points - Universidad Politécnica de Cataluña · Barcelona Tech - UPC
 
 # Getting Started with Create React App
 
