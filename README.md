@@ -1,6 +1,10 @@
-#Proyecto del Modulo - Front-End Frameworks
-Elaborado por: Andres Felipe Ospina
-Three Points - Universidad Politecnica de Cataluña - UPC
+# Proyecto del Modulo - Front-End Frameworks
+
+Elaborado por: Andres Felipe Ospina Lenis
+
+Master FullStack Web Development
+
+Three Points - Universidad Politécnica de Cataluña · Barcelona Tech - UPC
 
 # Getting Started with Create React App
 
