@@ -1,0 +1,34 @@
+[
+    {
+        "id": 1,
+        "createdAt": "3min ago",
+        "autor": "@andresospina",
+        "text": "What's your favorite song from Tool, A Perfect Circle and Puscifer?",
+        "comments": 10,
+        "image": "../assets/postsPics/fakePost.png"
+    },
+    {
+        "id": 2,
+        "createdAt": "10h ago",
+        "autor": "@andresospina",
+        "text": "Me gusta el cafe.",
+        "comments": 25,
+        "image": "../assets/postsPics/fakePost.png"
+    },
+    {
+        "id": 3,
+        "createdAt": "3 days ago",
+        "autor": "@andresospina",
+        "text": "Codificando en React, oh si!",
+        "comments": 40,
+        "image": "../assets/postsPics/fakePost.png"
+    },
+    {
+        "id": 4,
+        "createdAt": "1 month ago",
+        "autor": "@andresospina",
+        "text": "De vacaciones en Brasil!",
+        "comments": 40,
+        "image": "../assets/postsPics/fakePost.png"
+    }
+]

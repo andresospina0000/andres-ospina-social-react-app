@@ -1,26 +1,30 @@
-import fakePost from '../assets/default/fakePost.png';
+import fakePost from '../assets/postsPics/fakePost.png';
 import likeImg from '../assets/default/like.png';
 
-function Post() {
+function Post({ createdAt, autor, text, comments, image }) {
+    console.log('image:', image);
     return (
-        <div className="card">            
+        <div className="card mb-3">
             <img src={fakePost} className="card-img-top" alt="..." />
             <div className="card-body">
                 <div className='row'>
                     <div className='col-6'>
-                        <p class="card-text" style={{textAlign: 'left'}}><small class="text-body-secondary">3min ago</small></p>
+                        <p className="card-text" style={{ textAlign: 'left' }}><small className="text-body-secondary">{createdAt}</small></p>
                     </div>
-                    <div className='col-6' style={{textAlign: 'right'}}>
-                        <button type="button" class="btn btn-danger">
+                    <div className='col-6' style={{ textAlign: 'right' }}>
+                        <button type="button" className="btn btn-danger">
                             <img src={likeImg} alt="" style={{ width: 20, }} />
                             <span> 4k</span>
                         </button>
                     </div>
                 </div>
                 <div className='row'>
-                    <small className="card-title" style={{textAlign: 'left'}}>@andresospina</small>
+                    <small className="card-title" style={{ textAlign: 'left' }}>{autor}</small>
                 </div>
-                <p className="card-text" style={{textAlign: 'left'}}>Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <p className="card-text" style={{ textAlign: 'left' }}>{text}</p>
+                <div className='col-6'>
+                    <p className="card-text" style={{ textAlign: 'left' }}><span><small className="text-body-secondary">{comments} comments</small></span></p>
+                </div>
             </div>
         </div>
     )

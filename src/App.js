@@ -1,15 +1,33 @@
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from './components/header';
+import { useState } from 'react';
+import './App.css';
+import NavBar from './components/NavBar';
+import SearchBar from './components/SearchBar';
 import PostList from './components/postList';
+import Profile from './components/Profile';
 
 function App() {
-  return (
-    <div className="App">
-      <Header />
-      <PostList />
-    </div>
-  );
+
+  const [search, setSearch] = useState('');
+  const [posts, setPosts] = useState([]);
+  const [section, setSection] = useState('');
+
+  if (section === 'posts') {
+    return (
+      <div className="App">
+        <NavBar setSection={setSection} />
+        <SearchBar setSearch={setSearch} searchBy={search} />
+        <PostList searchBy={search} setPosts={setPosts} posts={posts} />
+      </div>
+    );
+  } else if (section === 'profile') {
+    return (
+      <div className="App">
+        <NavBar setSection={setSection} />
+        <Profile />
+      </div>
+    );
+  }
 }
 
 export default App;
