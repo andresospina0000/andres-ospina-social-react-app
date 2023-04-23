@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 function Post({ createdAt, autor, text, comments, image }) {
 
-    // const [likes, setLikes] = useState(0);
+    const [likes, setLikes] = useState(0);
     //onClick={setLikes(likes + 1)}
     //{likes}
     return (
@@ -16,9 +16,9 @@ function Post({ createdAt, autor, text, comments, image }) {
                         <p className="card-text" style={{ textAlign: 'left' }}><small className="text-body-secondary">{createdAt}</small></p>
                     </div>
                     <div className='col-6' style={{ textAlign: 'right' }}>
-                        <button type="button" className="btn btn-danger">
+                        <button type="button" className="btn btn-danger" onClick={() => setLikes(likes + 1)}>
                             <img src={likeImg} alt="" style={{ width: 20, }} />
-                            <span> k</span>
+                            <span> {likes}k</span>
                         </button>
                     </div>
                 </div>
