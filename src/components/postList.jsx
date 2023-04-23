@@ -4,11 +4,9 @@ import getPosts from '../services/ThreePics';
 
 function PostList({ searchBy, setPosts, posts }) {
 
-    console.log('posts', posts);
-
     useEffect(() => {
-        getPosts().then((posts) => {
-            setPosts(posts)
+        getPosts(searchBy).then((posts) => {
+            setPosts(posts);
         });
     }, [searchBy]);
 

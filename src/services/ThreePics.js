@@ -1,10 +1,11 @@
 import MockedPosts from './mockedPosts.json';
 
 
-const getPosts = () => {
+const getPosts = (filter) => {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve(MockedPosts);
+            const filteredPosts = MockedPosts.filter((post) => post.text.toLowerCase().includes(filter.toLowerCase()));
+            resolve(filteredPosts);
         }, 3000);
     });
 }

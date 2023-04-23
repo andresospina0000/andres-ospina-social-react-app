@@ -2,7 +2,6 @@ import fakePost from '../assets/postsPics/fakePost.png';
 import likeImg from '../assets/default/like.png';
 
 function Post({ createdAt, autor, text, comments, image }) {
-    console.log('image:', image);
     return (
         <div className="card mb-3">
             <img src={fakePost} className="card-img-top" alt="..." />

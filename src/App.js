@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import NavBar from './components/NavBar';
 import SearchBar from './components/SearchBar';
@@ -11,20 +11,20 @@ function App() {
   const [search, setSearch] = useState('');
   const [posts, setPosts] = useState([]);
   const [section, setSection] = useState('');
-
-  if (section === 'posts') {
+  
+  if (section === 'profile') {
+    return (
+      <div className="App">
+        <NavBar setSection={setSection} />
+        <Profile />
+      </div>
+    );
+  } else {
     return (
       <div className="App">
         <NavBar setSection={setSection} />
         <SearchBar setSearch={setSearch} searchBy={search} />
         <PostList searchBy={search} setPosts={setPosts} posts={posts} />
-      </div>
-    );
-  } else if (section === 'profile') {
-    return (
-      <div className="App">
-        <NavBar setSection={setSection} />
-        <Profile />
       </div>
     );
   }
