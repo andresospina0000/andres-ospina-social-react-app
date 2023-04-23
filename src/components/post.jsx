@@ -1,7 +1,12 @@
 import fakePost from '../assets/postsPics/fakePost.png';
 import likeImg from '../assets/default/like.png';
+import { useState } from 'react';
 
 function Post({ createdAt, autor, text, comments, image }) {
+
+    // const [likes, setLikes] = useState(0);
+    //onClick={setLikes(likes + 1)}
+    //{likes}
     return (
         <div className="card mb-3">
             <img src={fakePost} className="card-img-top" alt="..." />
@@ -13,7 +18,7 @@ function Post({ createdAt, autor, text, comments, image }) {
                     <div className='col-6' style={{ textAlign: 'right' }}>
                         <button type="button" className="btn btn-danger">
                             <img src={likeImg} alt="" style={{ width: 20, }} />
-                            <span> 4k</span>
+                            <span> k</span>
                         </button>
                     </div>
                 </div>
