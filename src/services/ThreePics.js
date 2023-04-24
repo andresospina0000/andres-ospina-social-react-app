@@ -1,16 +1,7 @@
 import axios from 'axios';
 import MockedPosts from './mockedPosts.json';
 
-const API_ENDPOINT = 'https://three-points.herokuapp.com/api'
-
-export function GetPosts(filter) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            const filteredPosts = MockedPosts.filter((post) => post.text.toLowerCase().includes(filter.toLowerCase()));
-            resolve(filteredPosts);
-        }, 3000);
-    });
-}
+const API_ENDPOINT = 'https://three-points.herokuapp.com/api';
 
 export function LogUser(user, psw) {
 
@@ -55,6 +46,15 @@ export function CreatePost(image, text) {
             }
         }
     );
+}
+
+export function GetMockedPosts(filter) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const filteredPosts = MockedPosts.filter((post) => post.text.toLowerCase().includes(filter.toLowerCase()));
+            resolve(filteredPosts);
+        }, 3000);
+    });
 }
 
 export function GetPosts() {
@@ -111,9 +111,6 @@ export function CommentPost(postId, comment) {
 export function DeleteComment(postId, commentId) {
 
     return axios.delete(`${API_ENDPOINT}/posts/${postId}/comments/${commentId}`,
-        {
-            text: comment
-        },
         {
             headers: {
                 'Authorization': `Bearer ${GetCurrentToken()}`,

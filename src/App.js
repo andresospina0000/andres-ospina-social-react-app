@@ -16,7 +16,7 @@ function App() {
   const [loginOk, setLoginOk] = useState(GetCurrentToken()?.length > 0 ?? false);
 
   const login = () => {
-    LogUser('john', 'P4ssW0rd!#')
+    LogUser('andresospina', 'P4ssW0rd!#')
       .then((response) => {
         StoreToken(response.data.token);
         setLoginOk(true);
