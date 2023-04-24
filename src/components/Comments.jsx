@@ -5,8 +5,11 @@ function PostComments({ comments, setSection }) {
     return (
         <div>
             <div className="row" style={{ alignItems: 'start' }}>
-                <div className="col">
-                    <button className="btn btn-secondary" style={{ width: 100 + '%' }} onClick={() => setSection('/')}>{`< atras`}</button>
+                <div className="col-6">
+                    <button className="btn btn-light fw-bold" style={{ width: 50 + '%' }} onClick={() => setSection('/')}>{`<`}</button>
+                </div>
+                <div className="col-6" style={{textAlign: 'center'}}>
+                    <p className="fw-bold">Comentarios</p>
                 </div>
             </div>
             <div className="row">
