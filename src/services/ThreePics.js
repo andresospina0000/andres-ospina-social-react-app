@@ -71,7 +71,7 @@ export async function GetPosts(searchBy) {
     ).then((response) => {
         filteredPosts = response.data;
     }).catch((error) => {
-        console.log(error);
+        throw error;
     });
 
     return new Promise((resolve, reject) => {

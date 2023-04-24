@@ -26,7 +26,7 @@ function App() {
       });
   }
 
-  if (!loginOk || GetCurrentToken().length === 0) {
+  if (!loginOk || GetCurrentToken()?.length === 0) {
     return (
       <div className="App">
         <Login onLoginComplete={login} loginStatus={loginOk} />
@@ -51,9 +51,9 @@ function App() {
   } else {
     return (
       <div className="App">
-        <NavBar setSection={setSection} />
+        <NavBar setSection={setSection} className="sticky-top" />
         <SearchBar setSearch={setSearch} searchBy={search} />
-        <PostList searchBy={search} setPosts={setPosts} posts={posts} />
+        <PostList searchBy={search} setPosts={setPosts} posts={posts} setLogin={setLoginOk} />
       </div>
     );
   }

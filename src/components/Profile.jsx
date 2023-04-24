@@ -1,6 +1,9 @@
 import ProfilePic from '../assets/default/Foto.png';
 
 function Profile({ avatar, username, bio }) {
+
+    
+
     return (
         <div className="row">
             <div className="col">

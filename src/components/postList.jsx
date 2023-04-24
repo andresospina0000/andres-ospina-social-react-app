@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Post from './post';
 import { GetPosts } from '../services/ThreePics';
 
-function PostList({ searchBy, setPosts, posts }) {
+function PostList({ searchBy, setPosts, posts, setLogin }) {
 
     const [loading, setLoading] = useState(true);
 
@@ -11,6 +11,12 @@ function PostList({ searchBy, setPosts, posts }) {
         GetPosts(searchBy).then((posts) => {
             setPosts(posts);
             setLoading(false);
+        }).catch((err) => {
+            if (err.response.status === 401) {
+                setLogin(false);
+            }else{
+                console.log(err);
+            }
         });
 
     }, [searchBy]);

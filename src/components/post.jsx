@@ -4,8 +4,7 @@ import likeImg from '../assets/default/like.png';
 function Post({ createdAt, autor, text, comments, image, postLikes }) {
 
     const [likes, setLikes] = useState(0);
-    //onClick={setLikes(likes + 1)}
-    //{likes}
+        
     return (
         <div className="card mb-3">
             <img src={image} className="card-img-top" alt="..." />
