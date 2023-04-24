@@ -21,7 +21,7 @@ function App() {
         setToken(response.data.token);
         setLoginOk(true);
         setSection('home');
-      }).catch((error) => {        
+      }).catch((error) => {
         setLoginOk(false);
       });
   }
