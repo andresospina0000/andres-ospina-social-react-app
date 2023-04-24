@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Post from './post';
-import getPosts from '../services/ThreePics';
+import { getPosts } from '../services/ThreePics';
 
 function PostList({ searchBy, setPosts, posts }) {
 
@@ -19,7 +19,7 @@ function PostList({ searchBy, setPosts, posts }) {
         return (
             <div className='container p-4'>
                 <p>Loading...</p>
-                <div className="spinner-border text-primary" role="status">                    
+                <div className="spinner-border text-primary" role="status">
                 </div>
             </div>
         );

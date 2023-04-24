@@ -1,18 +1,39 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './App.css';
+import Login from './components/Login';
 import NavBar from './components/NavBar';
+import Profile from './components/Profile';
 import SearchBar from './components/SearchBar';
 import PostList from './components/postList';
-import Profile from './components/Profile';
+import { getCurrentToken, logUser, setToken } from './services/ThreePics';
 
 function App() {
 
   const [search, setSearch] = useState('');
   const [posts, setPosts] = useState([]);
   const [section, setSection] = useState('');
+  const [loginOk, setLoginOk] = useState(getCurrentToken()?.length > 0 ?? false);
 
-  if (section === 'profile') {
+  const login = () => {
+    logUser('john', 'P4ssW0rd!#')
+      .then((response) => {
+        setToken(response.data.token);
+        setLoginOk(true);
+        setSection('home');
+      }).catch((error) => {        
+        setLoginOk(false);
+      });
+  }
+
+  if (!loginOk || getCurrentToken().length === 0) {
+    return (
+      <div className="App">
+        <Login onLoginComplete={login} loginStatus={loginOk} />
+      </div>
+    );
+
+  } else if (section === 'profile') {
 
     const profile = {
       avatar: '../assets/default/Foto.png',
@@ -26,6 +47,7 @@ function App() {
         <Profile avatar={profile.avatar} username={profile.username} bio={profile.bio} />
       </div>
     );
+
   } else {
     return (
       <div className="App">
