@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Post from './post';
-import { getPosts } from '../services/ThreePics';
+import { GetPosts } from '../services/ThreePics';
 
 function PostList({ searchBy, setPosts, posts }) {
 
@@ -8,7 +8,7 @@ function PostList({ searchBy, setPosts, posts }) {
 
     useEffect(() => {
         setLoading(true);
-        getPosts(searchBy).then((posts) => {
+        GetPosts(searchBy).then((posts) => {
             setPosts(posts);
             setLoading(false);
         });

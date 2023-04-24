@@ -6,19 +6,19 @@ import NavBar from './components/NavBar';
 import Profile from './components/Profile';
 import SearchBar from './components/SearchBar';
 import PostList from './components/postList';
-import { getCurrentToken, logUser, setToken } from './services/ThreePics';
+import { GetCurrentToken, LogUser, StoreToken } from './services/ThreePics';
 
 function App() {
 
   const [search, setSearch] = useState('');
   const [posts, setPosts] = useState([]);
   const [section, setSection] = useState('');
-  const [loginOk, setLoginOk] = useState(getCurrentToken()?.length > 0 ?? false);
+  const [loginOk, setLoginOk] = useState(GetCurrentToken()?.length > 0 ?? false);
 
   const login = () => {
-    logUser('john', 'P4ssW0rd!#')
+    LogUser('john', 'P4ssW0rd!#')
       .then((response) => {
-        setToken(response.data.token);
+        StoreToken(response.data.token);
         setLoginOk(true);
         setSection('home');
       }).catch((error) => {
@@ -26,7 +26,7 @@ function App() {
       });
   }
 
-  if (!loginOk || getCurrentToken().length === 0) {
+  if (!loginOk || GetCurrentToken().length === 0) {
     return (
       <div className="App">
         <Login onLoginComplete={login} loginStatus={loginOk} />
