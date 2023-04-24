@@ -8,7 +8,7 @@ function NavBar({ setSection, getProfile }) {
             <div className='navbar-expand'>
                 <div className='row pt-2 shadow-sm mb-3 bg-body-tertiary'>
                     <div className='col-2'>
-                        <img className="img-fluid" src={boltImg} onClick={() => setSection('posts')} style={{ width: 30, height: 30 }} alt='' />
+                        <img className="img-fluid" src={boltImg} onClick={() => setSection('/')} style={{ width: 30, height: 30 }} alt='' />
                     </div>
                     <div className='col-8'>
                         <h4 style={{ textAlign: 'left' }}>Three pics</h4>

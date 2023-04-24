@@ -1,27 +1,30 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './App.css';
 import Login from './components/Login';
 import NavBar from './components/NavBar';
 import Profile from './components/Profile';
 import SearchBar from './components/SearchBar';
 import PostList from './components/postList';
-import { GetCurrentToken, LogUser, StoreToken, GetProfile } from './services/ThreePics';
+import { GetCurrentToken, GetProfile, LogUser, StoreToken } from './services/ThreePics';
+import PostComments from './components/Comments';
 
 function App() {
 
   const [search, setSearch] = useState('');
   const [posts, setPosts] = useState([]);
-  const [section, setSection] = useState('');
+  const [section, setSection] = useState('/');
   const [loginOk, setLoginOk] = useState(GetCurrentToken()?.length > 0 ?? false);
   const [currentUser, setCurrentUser] = useState({});
+  const [showComments, setShowComments] = useState(false);
+  const [comments, setComments] = useState([]);
 
   const login = () => {
     LogUser('andresospina', 'P4ssW0rd!#')
       .then((response) => {
         StoreToken(response.data.token);
         setLoginOk(true);
-        setSection('home');
+        setSection('/');
       }).catch((error) => {
         setLoginOk(false);
       });
@@ -63,12 +66,22 @@ function App() {
       </div>
     );
 
-  } else {
+  } else if (section === '/') {
     return (
       <div className="App">
         <NavBar setSection={setSection} getProfile={getProfile} />
         <SearchBar setSearch={setSearch} searchBy={search} />
-        <PostList searchBy={search} setPosts={setPosts} posts={posts} setLogin={setLoginOk} />
+        <PostList searchBy={search} setPosts={setPosts} posts={posts}
+          setLogin={setLoginOk} showComments={showComments}
+          setShowComments={setShowComments} comments={comments}
+          setComments={setComments} setSection={setSection} />
+      </div>
+    );
+  }
+  else if (section === 'comments') {
+    return (
+      <div className="App">
+        <PostComments comments={comments} setSection={setSection} />
       </div>
     );
   }

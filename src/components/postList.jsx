@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import Post from './post';
 import { GetPosts } from '../services/ThreePics';
 
-function PostList({ searchBy, setPosts, posts, setLogin }) {
+function PostList({ searchBy, setPosts, posts, setLogin, setShowComments, showComments, comments, setComments, setSection }) {
 
     const [loading, setLoading] = useState(true);
 
@@ -36,7 +36,9 @@ function PostList({ searchBy, setPosts, posts, setLogin }) {
                     posts.map(({ text, author, image, createdAt, comments, likes, id }, index) => (
                         <Post key={id} createdAt={createdAt}
                             autor={author.username} text={text} comments={comments}
-                            image={image} postLikes={likes} postId={id} setLogin={setLogin} />
+                            image={image} postLikes={likes} postId={id} setLogin={setLogin}
+                            setShowComments={setShowComments} showComments={showComments}
+                            setComments={setComments} setSection={setSection} />
                     ))
                 }
             </div>

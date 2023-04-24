@@ -2,13 +2,14 @@ import { useState } from 'react';
 import likeImg from '../assets/default/like.png';
 import { LikePost } from '../services/ThreePics';
 
-function Post({ createdAt, autor, text, comments, image, postLikes, postId, setLogin }) {
+function Post({ createdAt, autor, text, comments, image, postLikes, postId,
+    setLogin, showComments, setShowComments, setComments, setSection }) {
 
     const [likes, setLikes] = useState(postLikes);
 
     const likeAPost = () => {
         LikePost(postId).then((res) => {
-            setLikes(likes+1);
+            setLikes(likes + 1);
         }).catch((err) => {
             if (err.response.status === 401) {
                 setLogin(false);
@@ -16,6 +17,13 @@ function Post({ createdAt, autor, text, comments, image, postLikes, postId, setL
                 console.log(err);
             }
         });
+    };
+
+    const showCommentsSection = () => {
+        console.log('comments', showComments);
+        setShowComments(true);
+        setComments(comments);
+        setSection('comments');
     };
 
     return (
@@ -37,8 +45,13 @@ function Post({ createdAt, autor, text, comments, image, postLikes, postId, setL
                     <small className="card-title" style={{ textAlign: 'left' }}>@{autor}</small>
                 </div>
                 <p className="card-text" style={{ textAlign: 'left' }}>{text}</p>
-                <div className='col-6'>
-                    <p className="card-text" style={{ textAlign: 'left' }}><span><small className="text-body-secondary">{comments.length} comments</small></span></p>
+                <div className='col-12'>
+                    <p className="card-text" onClick={() => showCommentsSection()}
+                        style={{ textAlign: 'left' }}>
+                        <span>
+                            <small className="text-body-secondary">Ver todos los {comments.length} comentarios</small>
+                        </span>
+                    </p>
                 </div>
             </div>
         </div>
