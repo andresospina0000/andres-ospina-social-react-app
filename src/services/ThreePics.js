@@ -96,10 +96,10 @@ export function DeletePost(postId) {
 export function LikePost(postId) {
 
     return axios.post(`${API_ENDPOINT}/posts/${postId}/like`,
+        {},
         {
             headers: {
-                'Authorization': `Bearer ${GetCurrentToken()}`,
-                'content-type': 'text/json'
+                'Authorization': `Bearer ${GetCurrentToken()}`
             }
         }
     );

@@ -14,7 +14,7 @@ function PostList({ searchBy, setPosts, posts, setLogin }) {
         }).catch((err) => {
             if (err.response.status === 401) {
                 setLogin(false);
-            }else{
+            } else {
                 console.log(err);
             }
         });
@@ -36,7 +36,7 @@ function PostList({ searchBy, setPosts, posts, setLogin }) {
                     posts.map(({ text, author, image, createdAt, comments, likes, id }, index) => (
                         <Post key={id} createdAt={createdAt}
                             autor={author.username} text={text} comments={comments}
-                            image={image} postLikes={likes} />
+                            image={image} postLikes={likes} postId={id} setLogin={setLogin} />
                     ))
                 }
             </div>
