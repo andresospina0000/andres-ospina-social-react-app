@@ -1,14 +1,13 @@
-import ProfilePic from '../assets/default/Foto.png';
 
-function Profile({ avatar, username, bio }) {
+function Profile({ avatar, username, bio, onLogout }) {
 
-    
+
 
     return (
         <div className="row">
             <div className="col">
                 <div>
-                    <img src={ProfilePic} className="card-img-top" alt="..." style={{ borderRadius: 50 + '%', width: 40 + '%' }} />
+                    <img src={avatar} className="card-img-top" alt="..." style={{ borderRadius: 50 + '%', width: 40 + '%' }} />
                 </div>
                 <div className="mx-4">
                     <div className="card-body">
@@ -16,6 +15,9 @@ function Profile({ avatar, username, bio }) {
                         <p className="card-text">{bio}</p>
                     </div>
                 </div>
+            </div>
+            <div>
+                <button type="button" className="btn btn-secondary" onClick={() => onLogout()}>Logout</button>
             </div>
         </div>
     )
