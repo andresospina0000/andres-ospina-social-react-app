@@ -1,6 +1,5 @@
-import fakePost from '../assets/postsPics/fakePost.png';
-import likeImg from '../assets/default/like.png';
 import { useState } from 'react';
+import likeImg from '../assets/default/like.png';
 
 function Post({ createdAt, autor, text, comments, image, postLikes }) {
 
@@ -23,11 +22,11 @@ function Post({ createdAt, autor, text, comments, image, postLikes }) {
                     </div>
                 </div>
                 <div className='row'>
-                    <small className="card-title" style={{ textAlign: 'left' }}>{autor}</small>
+                    <small className="card-title" style={{ textAlign: 'left' }}>@{autor}</small>
                 </div>
                 <p className="card-text" style={{ textAlign: 'left' }}>{text}</p>
                 <div className='col-6'>
-                    <p className="card-text" style={{ textAlign: 'left' }}><span><small className="text-body-secondary">{comments} comments</small></span></p>
+                    <p className="card-text" style={{ textAlign: 'left' }}><span><small className="text-body-secondary">{comments.length} comments</small></span></p>
                 </div>
             </div>
         </div>

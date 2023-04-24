@@ -9,7 +9,7 @@ function PostList({ searchBy, setPosts, posts }) {
     useEffect(() => {
         setLoading(true);
         GetPosts(searchBy).then((posts) => {
-            setPosts(posts.data);
+            setPosts(posts);
             setLoading(false);
         });
 
@@ -29,7 +29,7 @@ function PostList({ searchBy, setPosts, posts }) {
                 {
                     posts.map(({ text, author, image, createdAt, comments, likes, id }, index) => (
                         <Post key={id} createdAt={createdAt}
-                            autor={author.username} text={text} comments={comments.length}
+                            autor={author.username} text={text} comments={comments}
                             image={image} postLikes={likes} />
                     ))
                 }

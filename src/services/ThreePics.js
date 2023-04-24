@@ -57,16 +57,28 @@ export function GetMockedPosts(filter) {
     });
 }
 
-export function GetPosts() {
+export async function GetPosts(searchBy) {
 
-    return axios.get(`${API_ENDPOINT}/posts`,
+    let filteredPosts = [];
+
+    await axios.get(`${API_ENDPOINT}/posts`,
         {
             headers: {
                 'Authorization': `Bearer ${GetCurrentToken()}`,
                 'content-type': 'text/json'
             }
         }
-    );
+    ).then((response) => {
+        filteredPosts = response.data;
+    }).catch((error) => {
+        console.log(error);
+    });
+
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(filteredPosts.filter((post) => post.text.toLowerCase().includes(searchBy.toLowerCase())));
+        }, 3000);
+    });
 }
 
 export function DeletePost(postId) {
