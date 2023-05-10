@@ -50,64 +50,9 @@ function App() {
   }
 
 
-  const Home = () => {
-    return (
-      <div>
-        <NavBar setSection={setSection} getProfile={getProfile} />
-        <SearchBar setSearch={setSearch} searchBy={search} />
-        <PostList searchBy={search} setPosts={setPosts} posts={posts}
-          setLogin={setLoginOk} showComments={showComments}
-          setShowComments={setShowComments} comments={comments}
-          setComments={setComments} setSection={setSection} />
-      </div>
-    )
-  };
-
-
-  return (
-    <div className="App">
-
-      <Routes>
-        <Route path="/" element={loginOk || GetCurrentToken()?.length === 0 ?
-          <Home />
-          : <Login onLoginComplete={login} loginStatus={loginOk} />
-        } />
-        <Route path="/profile" element={loginOk || GetCurrentToken()?.length === 0 ?
-          <Profile avatar={currentUser.avatar} username={currentUser.username} bio={currentUser.bio} onLogout={logout} /> :
-          <Login onLoginComplete={login} loginStatus={loginOk} />}
-        />
-        <Route path="/comments" element={loginOk || GetCurrentToken()?.length === 0 ?
-          <PostComments comments={comments} setSection={setSection} />
-          : <Login onLoginComplete={login} loginStatus={loginOk} />}
-        />
-        <Route path="/login" element={<Login onLoginComplete={login} loginStatus={loginOk} />} />
-      </Routes>
-    </div>
-  );
-
-
-  // if (!loginOk || GetCurrentToken()?.length === 0) {
-
-  //   localStorage.clear();
-
+  // const Home = () => {
   //   return (
-  //     <div className="App">
-  //       <Login onLoginComplete={login} loginStatus={loginOk} />
-  //     </div>
-  //   );
-
-  // } else if (section === 'profile') {
-
-  //   return (
-  //     <div className="App">
-  //       <NavBar setSection={setSection} getProfile={getProfile} />
-  //       <Profile avatar={currentUser.avatar} username={currentUser.username} bio={currentUser.bio} onLogout={logout} />
-  //     </div>
-  //   );
-
-  // } else if (section === '/') {
-  //   return (
-  //     <div className="App">
+  //     <div>
   //       <NavBar setSection={setSection} getProfile={getProfile} />
   //       <SearchBar setSearch={setSearch} searchBy={search} />
   //       <PostList searchBy={search} setPosts={setPosts} posts={posts}
@@ -115,15 +60,70 @@ function App() {
   //         setShowComments={setShowComments} comments={comments}
   //         setComments={setComments} setSection={setSection} />
   //     </div>
-  //   );
-  // }
-  // else if (section === 'comments') {
-  //   return (
-  //     <div className="App">
-  //       <PostComments comments={comments} setSection={setSection} />
-  //     </div>
-  //   );
-  // }
+  //   )
+  // };
+
+
+  // return (
+  //   <div className="App">
+
+  //     <Routes>
+  //       <Route path="/" element={loginOk || GetCurrentToken()?.length === 0 ?
+  //         <Home />
+  //         : <Login onLoginComplete={login} loginStatus={loginOk} />
+  //       } />
+  //       <Route path="/profile" element={loginOk || GetCurrentToken()?.length === 0 ?
+  //         <Profile avatar={currentUser.avatar} username={currentUser.username} bio={currentUser.bio} onLogout={logout} /> :
+  //         <Login onLoginComplete={login} loginStatus={loginOk} />}
+  //       />
+  //       <Route path="/comments" element={loginOk || GetCurrentToken()?.length === 0 ?
+  //         <PostComments comments={comments} setSection={setSection} />
+  //         : <Login onLoginComplete={login} loginStatus={loginOk} />}
+  //       />
+  //       <Route path="/login" element={<Login onLoginComplete={login} loginStatus={loginOk} />} />
+  //     </Routes>
+  //   </div>
+  // );
+
+
+  if (!loginOk || GetCurrentToken()?.length === 0) {
+
+    localStorage.clear();
+
+    return (
+      <div className="App">
+        <Login onLoginComplete={login} loginStatus={loginOk} />
+      </div>
+    );
+
+  } else if (section === 'profile') {
+
+    return (
+      <div className="App">
+        <NavBar setSection={setSection} getProfile={getProfile} />
+        <Profile avatar={currentUser.avatar} username={currentUser.username} bio={currentUser.bio} onLogout={logout} />
+      </div>
+    );
+
+  } else if (section === '/') {
+    return (
+      <div className="App">
+        <NavBar setSection={setSection} getProfile={getProfile} />
+        <SearchBar setSearch={setSearch} searchBy={search} />
+        <PostList searchBy={search} setPosts={setPosts} posts={posts}
+          setLogin={setLoginOk} showComments={showComments}
+          setShowComments={setShowComments} comments={comments}
+          setComments={setComments} setSection={setSection} />
+      </div>
+    );
+  }
+  else if (section === 'comments') {
+    return (
+      <div className="App">
+        <PostComments comments={comments} setSection={setSection} />
+      </div>
+    );
+  }
 }
 
 export default App;
